@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    services:
+      mongo:
+        image: mongo:6.0
+        ports:
+          - 27017:27017
+    env:
+      MONGO_URI: mongodb://localhost:27017/taskapp_test
+      JWT_SECRET: testsecret
+      NODE_ENV: test
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js (Backend)
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install backend deps
+        working-directory: backend
+        run: npm ci
+
+      - name: Run backend tests
+        working-directory: backend
+        run: npm test
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js (Frontend)
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install frontend deps
+        working-directory: frontend
+        run: npm ci
+
+      - name: Build frontend
+        working-directory: frontend
+        run: npm run build
+
+      - name: Lint (si tienes ESLint)
+        working-directory: frontend
+        run: npm run lint || echo "(no hay lint configurado)"

@@ -1,0 +1,102 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.nav-bar {
+  background: #333;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-bar .brand {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+.nav-bar .brand img {
+  height: 30px;
+  margin-right: 10px;
+}
+.nav-bar button {
+  background: #555;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.nav-bar button:hover {
+  background: #777;
+}
+.form-container {
+  max-width: 300px;
+  margin: 0 auto;
+}
+.form-container h2 {
+  text-align: center;
+}
+.form-container input, .form-container select {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0;
+  box-sizing: border-box;
+}
+.form-container .btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+.link {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.error {
+  color: red;
+  margin: 5px 0;
+}
+.success {
+  color: green;
+  margin: 5px 0;
+}
+.tasks-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.tasks-table th, .tasks-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+.tasks-table th {
+  background: #f4f4f4;
+}
+.tasks-table td.actions {
+  white-space: nowrap;
+}
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+.status-completed {
+  color: green;
+  font-weight: bold;
+}
+.status-pending {
+  color: orange;
+  font-weight: bold;
+}
+.chart-container {
+  text-align: center;
+  margin-top: 20px;
+}
